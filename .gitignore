@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python cache and pytest cache
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+venv/
+configurations/.env/
+.venv/
+*.env
+
+# IDE-specific files (optional)
+.vscode/
+.idea/
+
+# OS-generated files (optional)
+.DS_Store
+Thumbs.db
+
+.python-version

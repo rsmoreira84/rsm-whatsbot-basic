@@ -1,0 +1,33 @@
+# Use compose file format version 3
+version: '3.8'
+
+services:
+  # MongoDB database service
+  mongodb:
+    # Use the official MongoDB image
+    image: mongo:latest
+    # Map MongoDB's default port 27017 on the host to the container
+    # This allows your local app.py to connect to MongoDB via localhost:27017
+    ports:
+      - "27017:27017"
+    # Define a named volume to persist MongoDB data
+    # This means your data won't be lost when containers are stopped/removed
+    volumes:
+      - mongodb_data:/data/db
+    # Environment variables for MongoDB (optional, can be used for authentication)
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: user
+    #   MONGO_INITDB_ROOT_PASSWORD: password
+
+  # Redis caching service
+  redis:
+    image: redis:7.4
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+# Define named volumes, which are managed by Docker
+volumes:
+  mongodb_data:
+  redis_data:
